@@ -1,0 +1,26 @@
+{
+  "name": "mvc-tech-blog",
+  "version": "1.0.0",
+  "description": "tech-blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VascoMiguens/MVC-Tech-Blog.git"
+  },
+  "author": "Vasco Miguens",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "dotenv": "^8.2.0",
+    "bcrypt": "^5.0.0",
+    "express-session": "^1.17.1",
+    "connect-session-sequelize": "^7.0.4"
+  }
+}
