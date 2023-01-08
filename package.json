@@ -15,13 +15,13 @@
   "author": "Vasco Miguens",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
     "bcrypt": "^5.0.0",
     "connect-session-sequelize": "^7.0.4",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.1",
-    "font-awesome": "^4.7.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5"
   }
