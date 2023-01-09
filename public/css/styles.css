@@ -1,0 +1,224 @@
+:root {
+  --dark: rgb(12, 19, 26);
+  --gold: rgb(240, 230, 140);
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: flex-start;
+}
+
+#navbar {
+  background-color: var(--dark);
+  display: flex;
+  height: 10vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navbar img {
+  margin-left: 20px;
+}
+
+.menu {
+  height: 100%;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  gap: 10px;
+  height: 100%;
+  margin-right: 20px;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Login Section*/
+
+#login-form {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card,
+.posts-card {
+  background: #fbfbfb;
+  border-radius: 8px;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65),
+    2px 3px 10px rgb(240, 230, 140, 0.65);
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-card-header {
+  letter-spacing: 4px;
+}
+
+.underline {
+  background: -webkit-linear-gradient(right, var(--gold), var(--dark));
+  height: 2px;
+  margin: -1.1rem auto 0 auto;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 35px 0;
+  position: relative;
+}
+
+.form-field i {
+  position: absolute;
+  font-size: 25px;
+}
+
+#login input {
+  background: #fbfbfb;
+  width: 100%;
+  border: none;
+  padding: 5px 0 0px 30px;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-underline {
+  background: -webkit-linear-gradient(right, var(--gold), var(--dark));
+  height: 2px;
+  width: 100%;
+  opacity: 0.5;
+  margin: -2.2rem auto 0 auto;
+}
+
+.form-field:active,
+.form-field:focus,
+.form-field:hover + .input-underline {
+  opacity: 1;
+}
+
+.btn-submit,
+.btn-add {
+  background: var(--dark);
+  color: white;
+  cursor: pointer;
+  width: 100px;
+  margin: 30px auto 0;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  font-size: 15px;
+}
+
+.btn-submit:hover,
+.btn-add:hover {
+  box-shadow: 0 0 1px var(--gold), 0 0 2px var(--gold), 0 0 3px var(--gold),
+    0 0 4px var(--gold), 0 0 5px var(--gold), 0 0 6px var(--gold);
+}
+
+#login a {
+  margin: 0 auto;
+}
+
+/* End of Login Section*/
+
+/* Posts Section */
+
+#posts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+.posts-card {
+  width: 90vw;
+  border-radius: 0;
+  margin-top: 50px;
+}
+
+.posts-card-header {
+  width: 100%;
+  height: 50px;
+  background-color: var(--dark);
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.post-title,
+.post-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  margin-left: 20px;
+}
+
+.post-time {
+  font-size: 0.8rem;
+  margin-right: 20px;
+}
+
+.posts-card-body {
+  margin: 10px 20px;
+}
+
+.fa {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+/*** Dashboard ***/
+
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-details {
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: 50px;
+}
