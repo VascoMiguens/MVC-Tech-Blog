@@ -1,0 +1,12 @@
+{{> post-details post}}
+
+    <div class="comment-form">
+        <form class="card-body comment-form" id="comment-form">
+            <label class="form-label">Comment</label>
+            <input id="comment" name="comment-body" class="form-input" />
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+{{> comment-details post.comments}}
+<script src="/js/comment.js"></script>
