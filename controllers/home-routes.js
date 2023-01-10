@@ -61,4 +61,12 @@ router.get("/post/:id", async (req, res) => {
   }
 });
 
+router.get("/login", async (req, res) => {
+  if (req.session.isLoggedIn) {
+    res.redirect("/dashboard");
+    return;
+  }
+  res.render("login");
+});
+
 module.exports = router;
