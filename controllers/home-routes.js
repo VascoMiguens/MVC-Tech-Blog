@@ -39,7 +39,7 @@ router.get("/post/:id", async (req, res) => {
           include: [
             {
               model: User,
-              attributes: ["name"],
+              attributes: ["username"],
             },
           ],
         },
@@ -63,10 +63,14 @@ router.get("/post/:id", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   if (req.session.isLoggedIn) {
-    res.redirect("/dashboard");
+    res.redirect("/");
     return;
   }
   res.render("login");
+});
+
+router.get("/signup", async (req, res) => {
+  res.render("sign-up");
 });
 
 module.exports = router;
