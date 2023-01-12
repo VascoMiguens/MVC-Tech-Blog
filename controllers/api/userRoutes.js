@@ -13,6 +13,7 @@ router.post("/signup", async (req, res) => {
     const newUser = await User.create(newData);
     req.session.save(() => {
       req.session.isLoggedIn = true;
+      req.session.username = newUser.username;
       res.status(200).json(newUser);
     });
   } catch (err) {
@@ -52,6 +53,17 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     res.status(404).json(err);
+  }
+});
+
+// logout route
+router.post("/logout", (req, res) => {
+  if (req.session.isLoggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
