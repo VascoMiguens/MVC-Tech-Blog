@@ -1,0 +1,40 @@
+<div id="dashboard">
+    <div class="introduction">
+        <h2>Welcome, {{username}}</h2>
+        <div class="underline"></div>
+    </div>
+    <div class="activity">
+        <section class="comments-section">
+            {{#if comments.length}}
+            <h3>Current Comments</h3>
+            {{#each comments as |comment|}}
+            <div class="comments">
+                <h4><a href="/post/{{post.id}}">{{comment.title}}</a></h4>
+                <button class="btn-delete" data-id="{{comment.id}}">Delete</button>
+            </div>
+            {{/each}}
+            {{/if}}
+        </section>
+
+        <section class="posts-section">
+            {{#if posts.length}}
+            <h3>Current Posts</h3>
+            {{#each posts as |post|}}
+            <div class="posts">
+                <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+                <button class="btn-delete" data-id="{{post.id}}">Delete</button>
+            </div>
+            {{/each}}
+            {{/if}}
+        </section>
+    </div>
+    <div class="new-post">
+        <h3>Create New Post</h3>
+        <form class="post-form">
+            <input type="text" placeholder="Post Title" class="post-title" />
+            <textarea placeholder="Post Content" class="post-content" rows="20" cols="100"></textarea>
+            <button class="btn-submit" >Add Post</button>
+        </form>
+    </div>
+</div>
+<script src="./js/add-post.js"></script>
