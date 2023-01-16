@@ -1,0 +1,47 @@
+[
+  {
+    "username": "Vasco",
+    "password": "cmonin123!",
+    "email": "vasco@email.com"
+  },
+  {
+    "username": "Tatiana",
+    "password": "letmethrough123!",
+    "email": "tatiana@email.com"
+  },
+  {
+    "username": "lernantino",
+    "password": "password123!",
+    "email": "lernantion@email.com"
+  },
+  {
+    "username": "John",
+    "password": "password789!",
+    "email": "john@email.com"
+  },
+  {
+    "username": "techgeek23",
+    "password": "mockup1",
+    "email": "techgeek23@email.com"
+  },
+  {
+    "username": "johndoe",
+    "password": "mockup2",
+    "email": "johndoe@email.com"
+  },
+  {
+    "username": "katie123",
+    "password": "mockup3",
+    "email": "katie123@email.com"
+  },
+  {
+    "username": "bobthebuilder",
+    "password": "mockup4",
+    "email": "bobthebuilder@email.com"
+  },
+  {
+    "username": "susan22",
+    "password": "mockup5",
+    "email": "susan22@email.com"
+  }
+]

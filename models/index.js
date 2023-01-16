@@ -16,9 +16,8 @@ User.hasMany(Comment, {
 // Association between Post and User
 Post.belongsTo(User, {
   foreignKey: "user_id",
-  onDelete: "SET NULL",
 });
-// Association between Post and Comment
+// Association between Comment and User
 Comment.belongsTo(User, {
   foreignKey: "user_id",
   onDelete: "SET NULL",
@@ -26,9 +25,9 @@ Comment.belongsTo(User, {
 // Association between Comment and Post
 Comment.belongsTo(Post, {
   foreignKey: "post_id",
-  onDelete: "SET NULL",
+  onDelete: "CASCADE",
 });
-// Association between Post and Comment enabling the retrieval of a specific Post's multiple comments
+// Association between Post and Comment
 Post.hasMany(Comment, {
   foreignKey: "post_id",
   onDelete: "CASCADE",
