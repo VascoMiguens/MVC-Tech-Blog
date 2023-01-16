@@ -1,16 +1,14 @@
-<div id="comments">
-    <h2>Comments</h3>
+<div class="comments-container">
     {{#each this}}
     <div class="comments-card">
         <div class="comments-card-header">
-            <div class="comment-user">
-                {{this.user.name}} {{format_date this.createdAt}}
-            </div>
+            <span class="comment-user">{{this.user.username}}</span>
+            <span class="comment-date">{{format_date this.createdAt}}</span>
         </div>
         <div class="comments-card-body">
-            <div class="comment-details">
-                    {{this.comment_content}}
-            </div>
+            <p class="comment-content">
+                {{this.comment_content}}
+            </p>
         </div>
     </div>
     {{/each}}
