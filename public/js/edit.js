@@ -1,3 +1,4 @@
+// Update a post form handler
 const updateFormHandler = async (event) => {
   event.preventDefault();
   if (event.target.hasAttribute("data-id")) {
@@ -27,6 +28,7 @@ const updateFormHandler = async (event) => {
   }
 };
 
+// Delete a post 
 const deletePost = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     const postId = event.target.getAttribute("data-id");

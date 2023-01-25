@@ -1,3 +1,4 @@
+// New post form handler
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -25,6 +26,7 @@ document
   .querySelector(".comment-form")
   .addEventListener("submit", newFormHandler);
 
+// Scroll to comment after clicking comment in dashboard
 window.addEventListener("load", function () {
   var commentIdForScrolling = new URLSearchParams(window.location.search).get(
     "commentIdForScrolling"

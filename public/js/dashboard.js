@@ -17,12 +17,12 @@ const newFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    // Display a success message
+    // reload page and scroll to top
     document.location.reload();
     window.scrollTo(0, 0);
   } else {
-    // Display an error message
-    alert(response.statusText);
+    // log an error message
+    console.log(response.statusText);
   }
 };
 
