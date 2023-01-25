@@ -18,10 +18,10 @@ router.get("/", async (req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-
     // Pass serialized data and session flag into template
     res.render("homepage", {
       posts,
+      session: req.session,
       isLoggedIn: req.session.isLoggedIn,
     });
   } catch (err) {
@@ -30,18 +30,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/post/:id", async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
-          include: [
-            {
-              model: User,
-              attributes: ["username"],
-            },
-          ],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
         },
         {
           model: User,
@@ -49,10 +47,10 @@ router.get("/post/:id", async (req, res) => {
         },
       ],
     });
-
     const post = postData.get({ plain: true });
     res.render("single-post", {
       post,
+      session: req.session,
       isLoggedIn: req.session.isLoggedIn,
     });
   } catch (err) {
@@ -61,7 +59,7 @@ router.get("/post/:id", async (req, res) => {
 });
 
 // Dashboard Route
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
