@@ -25,7 +25,6 @@ router.get("/", async (req, res) => {
       isLoggedIn: req.session.isLoggedIn,
     });
   } catch (err) {
-    console.log("Error", err);
     res.status(500).json(err);
   }
 });
@@ -73,10 +72,33 @@ router.get("/dashboard", withAuth, async (req, res) => {
       ],
     });
     const user = userData.get({ plain: true });
-    console.log(user);
     res.render("dashboard", {
       ...user,
       isLoggedIn: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Edit Post Route
+router.get("/post/:id/edit", withAuth, async (req, res) => {
+  try {
+    // FInd post by id
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ["password"] },
+        },
+      ],
+    });
+    // convert postData to plain Javascript object
+    const post = postData.get({ plain: true });
+    // render edit-post page and pass post object, logged_in status and check if user is the owner of the post
+    res.render("edit-post", {
+      ...post,
+      isLoggedIn: req.session.isLoggedIn,
     });
   } catch (err) {
     res.status(500).json(err);

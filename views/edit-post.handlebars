@@ -1,0 +1,12 @@
+<div class="edit-post">
+    <h3>Edit Your Post</h3>
+    <form class="edit-form">
+        <input type="text" placeholder="Title" class="form-title" value="{{title}}" />
+        <textarea placeholder="Content" class="form-content" rows="20">{{post_content}}</textarea>
+        <div class="action">
+        <button data-id="{{id}}" class="btn update-btn">Update</button>
+        <button data-id="{{id}}" class="btn delete-btn">Delete</button>
+        </div>
+    </form>
+</div>
+<script src="/js/edit.js"></script>

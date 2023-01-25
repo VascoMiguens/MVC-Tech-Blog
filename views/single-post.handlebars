@@ -1,12 +1,30 @@
 {{> post-details post}}
-{{> comment-details post.comments}}
+<div class="comments-container">
+    {{#each post.comments}}
+    <div id="comment-{{id}}" class="comments-card">
+        <div class="comments-card-header">
+            <span class="comment-user">{{user.username}}</span>
+            <p>{{session.username}}</p>
+            <span class="comment-date">{{format_date createdAt}}</span>
+        </div>
+        <div class="comments-card-body">
+            <p class="comment-content">
+                {{comment_content}}
+
+            </p>
+        </div>
+    </div>
+    {{/each}}
+    
+    
+</div>
 <div id="comment-post">
     <div class="form-container">
-        <form class="comment-form">
+        <form class="comment-form" data-id="{{post.id}}">
             <label class="form-label">Add your Comment</label>
             <textarea class="form-input"></textarea>
             <button type="submit" class="btn">Submit</button>
         </form>
     </div>
 </div>
-<script src="/js/comment.js"></script>
+<script type="text/javascript" src="/js/comment.js"></script>

@@ -20,7 +20,7 @@
                 <li><a href="/dashboard">Dashboard</a></li>
                 <li>
                 {{#if isLoggedIn}}
-                <button class="btn" id="logout">LogOut</button>
+                <button class="btn btn-login" id="logout">LogOut</button>
                 {{else}}
                 <a href="/login">LogIn</a>
                 {{/if}}
@@ -31,6 +31,6 @@
     <main>
         {{{ body }}}
     </main>
-    <script src="./js/logout.js"></script>
+    <script src="/js/logout.js"></script>
 </body>
 </html>

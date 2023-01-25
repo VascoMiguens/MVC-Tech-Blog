@@ -2,26 +2,35 @@
     <div class="introduction">
         <h2>Welcome, {{username}}!</h2>
     </div>
-    <div class="activity">
-        <h3>Posts</h3>
-            {{#if posts.length}}
+    <div class="activity-container">
+            <div class="posts-section">
+                <h3>{{format_plural "Post" posts.length}}</h3>
                 {{#each posts as |post|}}
-                    <div class="posts">
-                        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
-                        <button class="btn-delete" data-id="{{post.id}}">Delete</button>
+                <div class="posts">
+                    <div class="posts-title" data-id="{{post.id}}">
+                        <h4>{{post.title}}<span class="format-date">{{format_date createdAt}}</span></h4>
                     </div>
-                {{/each }}
-            {{else}}
-                <h4>No Posts Yet</h4>
-            {{/if}}
+                </div>
+                {{/each }} 
+            </div>
+            <div class="comments-section">
+                <h3>{{format_plural "Comment" comments.length}}</h3>
+                {{#each comments as |comment|}}
+                <div class="comments">
+                    <div class="comments-title" data-comment="{{comment.id}}" data-id="{{comment.post_id}}">
+                        <p>{{comment.comment_content}}<span class="format-date">{{format_date createdAt}}</span></p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
     </div>
     <div class="new-post">
         <h3>Create New Post</h3>
         <form class="post-form">
             <input type="text" placeholder="Title" class="form-title" />
             <textarea placeholder="Content" class="form-content" rows="20"></textarea>
-            <button class="btn" >Add Post</button>
+            <button class="btn add-btn" >Add Post</button>
         </form>
     </div>
 </div>
-<script src="./js/post.js"></script>
+<script src="/js/dashboard.js"></script>
