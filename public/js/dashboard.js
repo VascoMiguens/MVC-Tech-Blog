@@ -17,8 +17,11 @@ const newFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace("/dashboard");
+    // Display a success message
+    document.location.reload();
+    window.scrollTo(0, 0);
   } else {
+    // Display an error message
     alert(response.statusText);
   }
 };

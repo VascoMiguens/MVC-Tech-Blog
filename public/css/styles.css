@@ -287,8 +287,7 @@ a {
 
 .posts .posts-title h4,
 .comments .comments-title h4 {
-  word-wrap: break-word;
-  word-break: break-all;
+  word-break: normal;
 }
 
 .format-date {
