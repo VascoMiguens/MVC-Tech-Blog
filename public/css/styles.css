@@ -89,7 +89,7 @@ a {
 .underline {
   background: -webkit-linear-gradient(right, var(--gold), var(--dark));
   height: 2px;
-  margin: -1.1rem auto 0 auto;
+  margin: -1rem auto 0 auto;
 }
 
 .login-form {
@@ -429,6 +429,10 @@ a {
   cursor: pointer;
   width: 100px;
   transition: color 0.2s ease-in-out, 0.2s ease-in-out;
+}
+
+#btn-submit {
+  margin: 0 auto;
 }
 
 .update-btn,
