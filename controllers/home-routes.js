@@ -59,6 +59,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
 // Dashboard Route
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
+    console.log(req.session.user_id);
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
       include: [
@@ -70,7 +71,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
         },
       ],
     });
+    console.log(userData);
     const user = userData.get({ plain: true });
+    console.log(user);
     res.render("dashboard", {
       ...user,
       isLoggedIn: true,
