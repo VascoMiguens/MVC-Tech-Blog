@@ -23,7 +23,7 @@
                 {{#if isLoggedIn}}
                 <button class="btn btn-login" id="logout">LogOut</button>
                 {{else}}
-                <a href="/login">LogIn</a>
+                <button class="btn btn-login">LogIn</a>
                 {{/if}}
                 </li>
             </ul>
@@ -37,3 +37,10 @@
 {{/if}}
 </body>
 </html>
+<script>
+    const loginButton = document.getElementById("login-button");
+
+        loginButton.addEventListener("click", function () {
+            window.location.href = "/login";
+        });
+</script>
