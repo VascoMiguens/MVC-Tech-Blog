@@ -71,7 +71,6 @@ router.get("/dashboard", withAuth, async (req, res) => {
       ],
     });
     const user = userData.get({ plain: true });
-    console.log(user);
     res.render("dashboard", {
       ...user,
       isLoggedIn: true,
@@ -95,9 +94,33 @@ router.get("/post/:id/edit", withAuth, async (req, res) => {
     });
     // convert postData to plain Javascript object
     const post = postData.get({ plain: true });
-    // render edit-post page and pass post object, logged_in status and check if user is the owner of the post
+    // render edit-post page and pass post object, logged_in status
     res.render("edit-post", {
       ...post,
+      isLoggedIn: req.session.isLoggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/comments/:id/edit", withAuth, async (req, res) => {
+  try {
+    // FInd comment by id
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ["password"] },
+        },
+      ],
+    });
+    // convert commentData to plain Javascript object
+    const comment = commentData.get({ plain: true });
+    console.log(comment);
+    // render edit-comment page and pass comment object, logged_in status
+    res.render("edit-comment", {
+      ...comment,
       isLoggedIn: req.session.isLoggedIn,
     });
   } catch (err) {

@@ -4,21 +4,33 @@
     </div>
     <div class="activity-container">
             <div class="posts-section">
+                {{#if posts.length}}
                 <h3>{{format_plural "Post" posts.length}}</h3>
+                {{else}}
+                <h3>No Posts Yet</h3>
+                {{/if}}
                 {{#each posts as |post|}}
                 <div class="posts">
                     <div class="posts-title" data-id="{{post.id}}">
                         <h4>{{post.title}}<span class="format-date">{{format_date createdAt}}</span></h4>
                     </div>
+                    
                 </div>
                 {{/each }} 
             </div>
             <div class="comments-section">
+                {{#if comments.length}}
                 <h3>{{format_plural "Comment" comments.length}}</h3>
+                {{else}}
+                <h3>No Comments Yet</h3>
+                {{/if}}
                 {{#each comments as |comment|}}
                 <div class="comments">
                     <div class="comments-title" data-comment="{{comment.id}}" data-id="{{comment.post_id}}">
                         <p>{{comment.comment_content}}<span class="format-date">{{format_date createdAt}}</span></p>
+                    </div>
+                    <div class="comments-button" data-comment="{{comment.id}}" data-id="{{comment.post_id}}">
+                        <button type="button" class="btn">Go to Post</button>
                     </div>
                 </div>
                 {{/each}}

@@ -290,6 +290,10 @@ a {
   word-break: normal;
 }
 
+.comments-button {
+  margin-left: 10px;
+}
+
 .format-date {
   font-size: 12px;
   color: #999;

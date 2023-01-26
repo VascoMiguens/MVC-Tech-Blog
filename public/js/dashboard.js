@@ -29,18 +29,24 @@ const newFormHandler = async (event) => {
 document.querySelector(".post-form").addEventListener("submit", newFormHandler);
 
 document.addEventListener("DOMContentLoaded", function () {
-  var postElements = document.querySelectorAll(".posts-title, .comments-title");
+  var postElements = document.querySelectorAll(
+    ".posts-title, .comments-title, .comments-button"
+  );
   postElements.forEach(function (element) {
     element.addEventListener("click", function () {
       //get the post id for scrolling from data-id attribute
       var postId = this.dataset.id;
+      console.log(postId);
       var commentId = this.dataset.comment;
+      console.log(commentId);
       //check if the element is a posts-title or comments-title
       if (this.classList.contains("posts-title")) {
         //redirect to the edit page
         window.location.href = "/post/" + postId + "/edit";
-      } else {
+      } else if (this.classList.contains("comments-title")) {
         //redirect to the post page
+        window.location.href = "/comments/" + commentId + "/edit";
+      } else if (this.classList.contains("comments-button")) {
         window.location.href =
           "/post/" + postId + "?commentIdForScrolling=" + commentId;
       }

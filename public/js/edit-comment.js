@@ -4,14 +4,12 @@ const updateFormHandler = async (event) => {
   if (event.target.hasAttribute("data-id")) {
     //grab post id
     const id = event.target.getAttribute("data-id");
-    // Grab title and post content 
-    const postContent = document.querySelector(".form-content").value.trim();
-    const titletUpdate = document.querySelector(".form-title").value.trim();
-    const response = await fetch(`/api/post/${id}`, {
+    // Grab title and post content
+    const commentContent = document.querySelector(".form-content").value.trim();
+    const response = await fetch(`/api/comments/${id}`, {
       method: "PUT",
       body: JSON.stringify({
-        title: titletUpdate,
-        post_content: postContent,
+        comment_content: commentContent,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +17,7 @@ const updateFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // replace url 
+      // replace url
       document.location.replace("/dashboard");
     } else {
       // console log an error message
@@ -28,14 +26,14 @@ const updateFormHandler = async (event) => {
   }
 };
 
-// Delete a post 
+// Delete a post
 const deletePost = async (event) => {
   if (event.target.hasAttribute("data-id")) {
-    const postId = event.target.getAttribute("data-id");
-    const response = await fetch(`/api/post/${postId}`, {
+    const commentId = event.target.getAttribute("data-id");
+    const response = await fetch(`/api/comments/${commentId}`, {
       method: "DELETE",
       body: JSON.stringify({
-        id: postId,
+        id: commentId,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +41,6 @@ const deletePost = async (event) => {
     });
 
     if (response.ok) {
-      console.log(response.ok);
       // redirect to dashboard
       document.location.href = "/dashboard";
     } else {

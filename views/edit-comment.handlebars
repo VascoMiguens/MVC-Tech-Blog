@@ -1,12 +1,11 @@
 <div class="edit-post">
-    <h3>Edit Your Post</h3>
+    <h3>Edit Your Comment</h3>
     <form class="edit-form">
-        <input type="text" placeholder="Title" class="form-title" value="{{title}}" />
-        <textarea placeholder="Content" class="form-content" rows="20">{{post_content}}</textarea>
+        <textarea placeholder="Content" class="form-content" rows="20">{{comment_content}}</textarea>
         <div class="action">
             <button type="button" data-id="{{id}}" class="btn update-btn">Update</button>
             <button type="button" data-id="{{id}}" class="btn delete-btn">Delete</button>
         </div>
     </form>
 </div>
-<script src="/js/edit-post.js"></script>
+<script src="/js/edit-comment.js"></script>

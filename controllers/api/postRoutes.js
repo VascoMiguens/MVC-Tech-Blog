@@ -19,7 +19,6 @@ router.post("/", withAuth, async (req, res) => {
 
 //Update Post
 router.put("/:id", withAuth, async (req, res) => {
-  console.log(req.body);
   try {
     const updatePost = {
       title: req.body.title,
